@@ -12,13 +12,40 @@ services:
         published: 80
         protocol: tcp
       depends_on:
-        - static-website
-    static-website:
-      container_name: static-website
-      image: 
-    server:
-      container_name: server  
-    db-connector:
-      container_name: db-connector
+        - static_website
+    static_website:
+      container_name: static_website 
+      build:
+        context: ./static_website
+        dockerfile: Dockerfile
+      depends_on:
+      - mongo
+      - db_connector
+      ports:
+      - target: 8089
+        published: 8089
+        protocol: tcp
+      
     mongo:
       image: mongo
+    db_connector:
+      build:
+        context: ./db_connector
+        dockerfile: Dockerfile
+      depends_on:
+      - mongo
+      ports:
+      - target: 5001
+        published: 5001
+        protocol: tcp
+    server:
+      build:
+        context: ./server
+        dockerfile: Dockerfile
+      ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+      depends_on:
+      - mongo
+      - db_connector

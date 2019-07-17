@@ -1,9 +1,5 @@
-FROM node:10 as node-build
-WORKDIR /build
+FROM node:10
+WORKDIR /app
 COPY . .
 RUN npm install
-FROM node:10
-WORKDIR /opt/website
-COPY --from=node-build /build/build .
-RUN npm install -g serve
-ENTRYPOINT ["/usr/local/bin/serve", "-l", "8089"]
+ENTRYPOINT ["/usr/local/bin/node", "server.js"]
