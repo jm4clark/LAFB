@@ -11,5 +11,14 @@ services:
       - target: 80
         published: 80
         protocol: tcp
+      depends_on:
+        - static-website
+    static-website:
+      container_name: static-website
+      image: 
+    server:
+      container_name: server  
+    db-connector:
+      container_name: db-connector
     mongo:
       image: mongo
