@@ -1,4 +1,4 @@
 module.exports = {
-    mongoURI: "localhost:27017"
+    mongoURI: "mongodb://localhost:5001"
   };
   
