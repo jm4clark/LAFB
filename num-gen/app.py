@@ -5,10 +5,13 @@ import requests
 from random import randint
 app = Flask(__name__)
 
+randcollector = ""
 @app.route(methods=['GET'])
 def num_gen_6(max):
-    rand = randint(0,max) for x in (6)
-    return jsonify({"Random Number":rand})
+    for x in range (0, 6):
+        rand = randint(0, 9)
+    	randcollector += str(rand)
+	return jsonify({"Random Number":randcollector})
 
 @app.errorhandler(404)
 def not_found(error):

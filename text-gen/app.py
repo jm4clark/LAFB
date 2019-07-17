@@ -2,14 +2,22 @@
 from flask import Flask, jsonify, make_response
 import sys
 import requests
-from random import choice
+import random
 import string
 app = Flask(__name__)
 
+randcollector = ""
+
 @app.route(methods=['GET'])
 def text_gen_lower():
-    rand = random.choice(string.ascii_lowercase) for x in (3)
-    return jsonify({"Random Characters":rand})
+    for x in range (0, 3):
+    	rand = random.choice(string.ascii_lowercase)
+    	randcollector += rand
+    	return jsonify({"Random Characters":randcollector})
+
+
+
+
 
 @app.errorhandler(404)
 def not_found(error):

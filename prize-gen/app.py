@@ -7,11 +7,11 @@ app = Flask(__name__)
 
 @app.route(methods=['GET'])
 def prizegen():
-	rand = randint(0,100)
-	if rand <= 25:
-		return jsonify({"Random Prize":2000})
-	elif rand > 25:
-		return jsonify({"Random Prie":1000})
+    rand = randint(0,100)
+    if rand <= 25:
+        return jsonify({"Random Prize":2000})
+    elif rand > 25:
+	return jsonify({"Random Prize":1000})
 
 @app.errorhandler(404)
 def not_found(error):
