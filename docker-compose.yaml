@@ -61,10 +61,10 @@ services:
       - prize-gen
     prize-gen:
        build:
-         context: ./prize-gen
+         context: ./prize-gen-node
          dockerfile: Dockerfile
        ports:
-       - target: 9017 
+       - target: 9017
          published: 9017
          protocol: tcp
        depends_on:
