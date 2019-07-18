@@ -18,8 +18,9 @@ function newRequest(method, url, body) {
 function getAllAccounts(){
     newRequest("GET", "/server/getAllAccounts").then((res) => {
         let resObj = JSON.parse(res.responseText);
-        let var1 = document.getElementById(someid);
-        var1.appendChild(resObj);
+        let var1 = document.getElementById("someid");
+	console.log(resObj);
+        var1.innerText = resObj;
     }).catch((rej) => {console.log(rej)});
 };
 
