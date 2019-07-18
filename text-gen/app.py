@@ -6,17 +6,13 @@ import random
 import string
 app = Flask(__name__)
 
-randcollector = ""
-
 @app.route('/getText', methods=['GET'])
 def text_gen_lower():
+    randcollector = ''
     for x in range (0, 3):
         rand = random.choice(string.ascii_lowercase)
         randcollector += rand
-        return jsonify({"Random Characters":randcollector})
-
-
-
+    return jsonify({'Random Characters':randcollector})
 
 
 @app.errorhandler(404)

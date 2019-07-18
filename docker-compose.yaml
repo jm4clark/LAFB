@@ -54,8 +54,8 @@ services:
         context: ./notification_server
         dockerfile: Dockerfile
       ports:
-      - target: 9989
-        published: 9989
+      - target: 9000
+        published: 9000
         protocol: tcp
       depends_on:
       - prize-gen
