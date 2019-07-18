@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: text-gen
+  labels:
+    app: text-gen
+spec:
+  selector:
+    matchLabels:
+      app: text-gen
+  template:
+    metadata:
+      labels:
+        app: text-gen
+    spec:
+      containers:
+      - name: text-gen
+        image: jmclark/text-gen:latest
+        ports:
+        - containerPort: 9019

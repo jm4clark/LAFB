@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: num-gen
+  labels:
+    app: num-gen
+spec:
+  selector:
+    matchLabels:
+      app: num-gen
+  template:
+    metadata:
+      labels:
+        app: num-gen
+    spec:
+      containers:
+      - name: num-gen
+        image: jmclark/num-gen:latest
+        ports:
+        - containerPort: 9018
