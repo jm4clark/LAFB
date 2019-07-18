@@ -49,3 +49,23 @@ services:
       depends_on:
       - mongo
       - db_connector
+    notification_server:
+      build:
+        context: ./notification_server
+        dockerfile: Dockerfile
+      ports:
+      - target: 9989
+        published: 9989
+        protocol: tcp
+      depends_on:
+      - prize-gen
+    prize-gen:
+       build:
+         context: ./prize-gen
+         dockerfile: Dockerfile
+       ports:
+       - target: 9017 
+         published: 9017
+         protocol: tcp
+       depends_on:
+       - db_connector
