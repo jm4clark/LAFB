@@ -69,3 +69,21 @@ services:
          protocol: tcp
        depends_on:
        - db_connector
+    num-gen:
+      build:
+        context: ./num-gen
+        dockerfile: Dockerfile
+      ports:
+      - target: 9018
+        published: 9018
+      depends_on:
+      - server
+    text-gen:
+      build:
+        context: ./text-gen
+        dockerfile: Dockerfile
+      ports:
+      - target: 9019
+        published: 9019
+      depends_on:
+      - server
