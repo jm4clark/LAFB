@@ -43,8 +43,8 @@ services:
         context: ./server
         dockerfile: Dockerfile
       ports:
-      - target: 8080
-        published: 8080
+      - target: 8084
+        published: 8084
         protocol: tcp
       depends_on:
       - mongo
