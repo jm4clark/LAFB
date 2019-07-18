@@ -29,6 +29,7 @@ services:
     mongo:
       image: mongo
     db_connector:
+      image: jmclark/db_connector
       build:
         context: ./db_connector
         dockerfile: Dockerfile
@@ -39,6 +40,7 @@ services:
         published: 5001
         protocol: tcp
     server:
+      image: jmclark/server
       build:
         context: ./server
         dockerfile: Dockerfile
@@ -50,6 +52,7 @@ services:
       - mongo
       - db_connector
     notification_server:
+      image: jmclark/notification_server
       build:
         context: ./notification_server
         dockerfile: Dockerfile
@@ -60,6 +63,7 @@ services:
       depends_on:
       - prize-gen
     prize-gen:
+       image: jmclark/prize-gen-node-1
        build:
          context: ./prize-gen-node
          dockerfile: Dockerfile
@@ -70,6 +74,7 @@ services:
        depends_on:
        - db_connector
     num-gen:
+      image: jmclark/num-gen6
       build:
         context: ./num-gen
         dockerfile: Dockerfile
@@ -79,6 +84,7 @@ services:
       depends_on:
       - server
     text-gen:
+      image: jmclark/text-gen
       build:
         context: ./text-gen
         dockerfile: Dockerfile
