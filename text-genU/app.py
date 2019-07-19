@@ -7,7 +7,7 @@ import string
 app = Flask(__name__)
 
 @app.route('/getText', methods=['GET'])
-def text_gen_lower():
+def text_gen_upper():
     randcollector = ''
     for x in range (0, 2):
         rand = random.choice(string.ascii_uppercase)
