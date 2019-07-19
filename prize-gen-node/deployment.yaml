@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prize-gen
+  labels:
+    app: prize-gen
+spec:
+  selector:
+    matchLabels:
+      app: prize-gen
+  template:
+    metadata:
+      labels:
+        app: prize-gen
+    spec:
+      containers:
+      - name: prize-gen
+        image: jmclark/prize-gen-node-1:latest
+        ports:
+        - containerPort: 9017

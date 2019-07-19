@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: num-gen
-        image: jmclark/num-gen:latest
+        image: jmclark/num-gen:v1
         ports:
         - containerPort: 9018
