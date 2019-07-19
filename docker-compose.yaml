@@ -77,7 +77,7 @@ services:
       depends_on:
       - server
     text-gen:
-      image: jmclark/text-gen:v1
+      image: jmclark/text-gen:v2
       ports:
       - target: 9019
         published: 9019
