@@ -5,13 +5,14 @@ The aim of this project was to convert a legacy project build into a more flexib
 
 # Original Architecture
 The original architecture used mlabs as the database, with four microservices packaged as a single monolith.
+![Image of Yaktocat](/images/Architecture1.png)
 
 # New Architecture
 The new architecture uses a mongo database, with the addition three new microservices, of which there are two versions. These are:
 * A text generator which generates a random sequence of characters
 * A number generator which generates a random sequence of numbers
 * A prize generator which submits a different prize figure depending upon the result of a gamble
-
+![Image of Yaktocat](/images/Architecture2.png)
 Small changes in our docker-compose.yaml file allows switching between the two variants.
 
 # Jenkins Pipeline
