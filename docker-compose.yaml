@@ -83,3 +83,8 @@ services:
         published: 9019
       depends_on:
       - server
+    jenkins:
+      image: bobcrutchley/jenkins:latest
+      ports:
+      - target: 8080
+        published: 8080
