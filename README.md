@@ -20,7 +20,26 @@ Any changes to the repository files are detected, activating the Jenkins script.
 New builds are created, pushed up to the Dockerhub repository (https://hub.docker.com/u/jmclark) and called by the docker-compose.yaml file for deployment.
 
 # Docker Swarm
-Docker Swarm allows scalable deployment of our services across multiple virtual machines with little effort.
+Docker Swarm allows scalable deployment of our services across multiple virtual machines with little effort. A single docker-compose.yaml file organizes this for us.
+
+
+## How To Deploy
+In the Azure CLI, create a resource group and 3 or more virtual machines, Naming one "Manager" and the rest "Worker1", "Worker2"...
+SSH into Manager and set it to the Master node with
+```
+docker swarm init
+```
+Copy the token printed by this command and paste it into the other two virtual machine shells to add them as worker nodes.
+
+Back in the manager node, clone the project onto your machine using the command below:
+```
+git clone https://github.com/jm4clark/LAFB.git
+```
+Then once inside the LAFB folder, run the following:
 ```
 docker stack deploy --compose-file docker-compose.yaml LAFBdemo
 ```
+The IP address of the Manager node should take you to the website.
+
+## Swapping Microservices/Images
+Swapping between microservices simply requires a change in the docker-compose.yaml file.
