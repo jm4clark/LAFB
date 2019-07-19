@@ -70,14 +70,14 @@ services:
        depends_on:
        - db_connector
     num-gen:
-      image: jmclark/num-gen:v2
+      image: jmclark/num-gen:v1
       ports:
       - target: 9018
         published: 9018
       depends_on:
       - server
     text-gen:
-      image: jmclark/text-gen:v2
+      image: jmclark/text-gen:v1
       ports:
       - target: 9019
         published: 9019
