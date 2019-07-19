@@ -7,7 +7,10 @@ data:
     server {
         listen 80;
         location / {
-            return 200 "OK";
+            proxy_pass http://static_website:8089/;
+        }
+        location /server/ {
+            proxy_pass http://server:8084/;
         }
         location /jenkins/ {
             proxy_pass http://jenkins:8080;
