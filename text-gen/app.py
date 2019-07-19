@@ -12,7 +12,7 @@ def text_gen_lower():
     for x in range (0, 3):
         rand = random.choice(string.ascii_lowercase)
         randcollector += rand
-    return jsonify({'Random Characters':randcollector})
+    return randcollector
 
 
 @app.errorhandler(404)

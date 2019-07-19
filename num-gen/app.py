@@ -9,10 +9,10 @@ app = Flask(__name__)
 @app.route('/getNums', methods=['GET'])
 def num_gen_6():
     randcollector = ''
-    for x in range(7):
+    for x in range(6):
         rand = randint(0, 9)
         randcollector += str(rand)
-    return jsonify({'Random Number':randcollector})
+    return randcollector
 
 @app.errorhandler(404)
 def not_found(error):
