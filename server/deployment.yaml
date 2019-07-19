@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: server
-  labels:
+  labels: 
     app: server
 spec:
   selector:
@@ -18,3 +18,6 @@ spec:
         image: jmclark/server:latest
         ports:
         - containerPort: 8084
+        env:
+        - name: SERVER_PORT
+          value: "8084"
