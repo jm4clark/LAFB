@@ -30,7 +30,8 @@ function addAnAccount(){
     newRequest("POST", "/server/addAccount", JSON.stringify(account)).then((res) => {
         let resObj = JSON.parse(res.responseText);
         let var1 = document.getElementById(someid);
-        var1.appendChild(resObj);
+        let newAcc = accMakerObj(resObj);
+        console.log(newAcc);
     }).catch((rej) => {console.log(rej.responseText)});
 }
 
@@ -38,6 +39,16 @@ function accMaker(fName, lName){
     const acc = {
         firstName: fName,
         lastName: lName
+    }
+    return acc;
+}
+
+function accMakerObj(accObj){
+    const acc = {
+        firstName: accObj.firstName,
+        lastName: accObj.lastName,
+        accountNumber: accObj.accountnumber,
+        prize: accObj.prize
     }
     return acc;
 }

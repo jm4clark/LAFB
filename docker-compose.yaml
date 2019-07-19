@@ -1,7 +1,6 @@
 version: '3.7'
 services:
     nginx:
-      container_name: nginx
       image: nginx:latest
       volumes:
       - type: bind
@@ -14,7 +13,7 @@ services:
       depends_on:
         - static_website
     static_website:
-      container_name: static_website 
+      image: jmclark/static_website
       build:
         context: ./static_website
         dockerfile: Dockerfile
@@ -64,9 +63,6 @@ services:
       - prize-gen
     prize-gen:
        image: jmclark/prize-gen-node-1
-       build:
-         context: ./prize-gen-node
-         dockerfile: Dockerfile
        ports:
        - target: 9017
          published: 9017
@@ -74,20 +70,14 @@ services:
        depends_on:
        - db_connector
     num-gen:
-      image: jmclark/num-gen6
-      build:
-        context: ./num-gen
-        dockerfile: Dockerfile
+      image: jmclark/num-gen:v2
       ports:
       - target: 9018
         published: 9018
       depends_on:
       - server
     text-gen:
-      image: jmclark/text-gen
-      build:
-        context: ./text-gen
-        dockerfile: Dockerfile
+      image: jmclark/text-gen:v2
       ports:
       - target: 9019
         published: 9019
