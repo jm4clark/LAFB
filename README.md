@@ -43,4 +43,4 @@ The IP address of the Manager node should take you to the website.
 
 ## Swapping Microservices/Images
 Swapping between microservices simply requires a change in the docker-compose.yaml file.
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image of Yaktocat](https://github.com/jm4clark/LAFB.git/images/Microservice Change Guide.png)
