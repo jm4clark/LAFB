@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/getNums', methods=['GET'])
 def num_gen_8():
     randcollector = ''
-    for x in range(9):
+    for x in range(8):
         rand = randint(0, 9)
         randcollector += str(rand)
     return randcollector

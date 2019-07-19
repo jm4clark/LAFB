@@ -62,7 +62,7 @@ services:
       depends_on:
       - prize-gen
     prize-gen:
-       image: jmclark/prize-gen-node-1
+       image: jmclark/prize-gen-node:v1
        ports:
        - target: 9017
          published: 9017
@@ -70,7 +70,7 @@ services:
        depends_on:
        - db_connector
     num-gen:
-      image: jmclark/num-gen:v2
+      image: jmclark/num-gen:v1
       ports:
       - target: 9018
         published: 9018

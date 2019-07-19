@@ -9,6 +9,7 @@ def hello():
     outF = open("prizes.txt", "a")
     outF.write("A prize has been issued at : " + str(now))
     outF.write("\n")
+    outF.close()
     return "A Notification has been sent to management"
 
 if __name__ == "__main__":
