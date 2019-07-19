@@ -12,7 +12,7 @@ def num_gen_6():
     for x in range(7):
         rand = randint(0, 9)
         randcollector += str(rand)
-    return jsonify({'Random Number':randcollector})
+    return randcollector
 
 @app.errorhandler(404)
 def not_found(error):
