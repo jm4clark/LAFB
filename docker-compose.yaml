@@ -62,7 +62,7 @@ services:
       depends_on:
       - prize-gen
     prize-gen:
-       image: jmclark/prize-gen-node:v1
+       image: jmclark/prize-gen:v2
        ports:
        - target: 9017
          published: 9017
