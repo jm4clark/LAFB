@@ -62,7 +62,7 @@ services:
       depends_on:
       - prize-gen
     prize-gen:
-       image: jmclark/prize-gen:v2
+       image: jmclark/prize-gen:v1
        ports:
        - target: 9017
          published: 9017
@@ -77,7 +77,7 @@ services:
       depends_on:
       - server
     text-gen:
-      image: jmclark/text-gen:v2
+      image: jmclark/text-gen:v1
       ports:
       - target: 9019
         published: 9019
